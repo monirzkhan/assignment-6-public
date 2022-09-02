@@ -14,7 +14,8 @@ const displayCategories = (categories) => {
         // divCategory.classList.add('d-flex');
         divCategory.innerHTML = `
    
-     <button class="btn btn-info mx-md-3 mx-1 my-1" onclick="loadNewsDetails('${category.category_id}')">${category.category_name}</button>
+     <button class="btn btn-info mx-md-3 mx-1 my-1 hover:bg-dark" onclick="loadNewsDetails('${category.category_id}')">
+     ${category.category_name}</button>
         `; 
         categoriesContainer.append(divCategory);
         
