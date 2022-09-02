@@ -28,6 +28,7 @@ const loadNewsDetails = (code) => {
         .then(res => res.json())
         .then(data => displayDetailsNews(data.data))
         .catch(error => console.log(error))
+    toggleLoader(true);
 }
 
 const displayDetailsNews = (newses) => {
@@ -81,8 +82,16 @@ const displayDetailsNews = (newses) => {
                     </div>
         `;
         newsContainer.append(newsDiv);
+        toggleLoader(false)
 
     });
+}
+const toggleLoader = (isLoading) => {
+    const loader = document.getElementById('loader');
+    if (isLoading) {
+        loader.classList.remove('d-none');
+    }
+    else { loader.classList.add('d-none'); }
 }
 
 loadCategories();
