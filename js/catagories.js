@@ -48,12 +48,12 @@ const displayDetailsNews = (newses) => {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">${news.title}</h5>
-                                    <p class="card-text text-truncate" style="max-width: 500px">${news.details}</p>
-                                    <p class="card-text "><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <p class="card-text " id="elip">${news.details}</p>
+                                    
                                 </div>
-                                  <div class="card-body d-flex justify-content-between align-items-center">
+                                  <div class="card-body d-md-flex justify-content-between align-items-center">
                             <div class="d-flex">
-                                <div><img src="${news.author.img}" alt="" width="38" height="38" class="mt-1 me-1"></div>
+                                <div><img src="${news.author.img}" alt="" width="38" height="38" class="mt-1 me-2"></div>
                                 <div>
                                     <small>${news.author.name ? news.author.name : 'no author'}</small> <br>
                                     <small>${news.author.published_date ? news.author.published_date: 'no date found'}</small>
@@ -62,19 +62,23 @@ const displayDetailsNews = (newses) => {
                             <div class="d-flex">
                                 <div><img src="images/view.png" alt="" width="20" height="20"></div>
                                 <div>
-                                    <span class="ms-1 fw-bold">${news.total_view ? news.total_view :'no data'}</span>
+                                    <span class="ms-2 mt-1 fw-bold">${news.total_view ? news.total_view :'no data'}</span>
                                 </div>
                             </div>
-                            <div class="">
-                                <div><img src="images/rating.png" alt="" width="50" height="50"></div>
-                                
+                            <div class="mx-2">
+                            <i class="fa-solid fa-star fs-6"></i>
+                            <i class="fa-solid fa-star fs-6 "></i>
+                            <i class="fa-solid fa-star fs-6"></i>
+                            <i class="fa-solid fa-star fs-6"></i>
+                            <i class="fa-regular fa-star fs-6"></i>
+                    
                             </div>
-                            <div class="">
-                                <div><img src="images/read-more.png" alt="" width="38" height="38"></div>
+                            <div class="align-text-end">
+                                <div><img onclick="loadNewsModal('${news._id}')" src="images/options.png" alt="" width="38" height="38" data-bs-toggle="modal" data-bs-target="#exampleModal"></div>
                             </div>
-                            
+
                             <div></div>
-                            
+
                         </div>
 
                             </div>
@@ -86,6 +90,47 @@ const displayDetailsNews = (newses) => {
 
     });
 }
+const loadNewsModal = (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayNewsModal(data.data[0]))
+        .catch(error => console.log(error))
+    
+}
+
+const displayNewsModal = (news) => {
+    const newsTitle = document.getElementById('NewsModalLabel');
+    newsTitle.innerText = news.title;
+    const newsBody = document.getElementById('newsBody');
+    newsBody.innerHTML = `
+    <p class="card-text overflow-auto">${news.details}</p>
+    <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
+    <hr>
+         <div class="card-body d-md-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                <div><img src="${news.author.img}" alt="" width="38" height="38" class="mt-1 me-2"></div>
+                                <div>
+                                    <small>${news.author.name ? news.author.name : 'no author'}</small> <br>
+                                    <small>${news.author.published_date ? news.author.published_date : 'no date found'}</small>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div><img src="images/view.png" alt="" width="20" height="20"></div>
+                                <div>
+                                    <span class="ms-2 mt-1 fw-bold">${news.total_view ? news.total_view : 'no data'}</span>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div><span class="ms-2 mt-1 fw-bold">Ratings: ${news.rating.number ? news.rating.number : 'no data'}(${news.rating.badge})</span></div>
+
+                            </div>
+        </div>
+
+    `;
+}
+// loadNewsModal();
+
 const toggleLoader = (isLoading) => {
     const loader = document.getElementById('loader');
     if (isLoading) {
