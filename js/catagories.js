@@ -47,11 +47,35 @@ const displayDetailsNews = (newses) => {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">${news.title}</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                        additional
-                                        content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <p class="card-text text-truncate" style="max-width: 500px">${news.details}</p>
+                                    <p class="card-text "><small class="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
+                                  <div class="card-body d-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                <div><img src="${news.author.img}" alt="" width="38" height="38" class="mt-1 me-1"></div>
+                                <div>
+                                    <small>${news.author.name ? news.author.name : 'no author'}</small> <br>
+                                    <small>${news.author.published_date ? news.author.published_date: 'no date found'}</small>
+                                </div> 
+                            </div>
+                            <div class="d-flex">
+                                <div><img src="images/view.png" alt="" width="20" height="20"></div>
+                                <div>
+                                    <span class="ms-1 fw-bold">${news.total_view ? news.total_view :'no data'}</span>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div><img src="images/rating.png" alt="" width="50" height="50"></div>
+                                
+                            </div>
+                            <div class="">
+                                <div><img src="images/read-more.png" alt="" width="38" height="38"></div>
+                            </div>
+                            
+                            <div></div>
+                            
+                        </div>
+
                             </div>
                         </div>
                     </div>
