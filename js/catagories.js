@@ -33,12 +33,13 @@ const loadNewsDetails = (code) => {
 
 const displayDetailsNews = (newses) => {
     const newsContainer = document.getElementById('news-container');
+    
     newsContainer.innerHTML = ``;
     // console.log(newses)
     newses.forEach(news => {
+        
         const newsDiv = document.createElement('news-div');
         newsDiv.classList.add('col');
-        // newsDiv.classList.add('ms-5');
         newsDiv.innerHTML = `
            <div class="card mb-3" style="max-width: 800px;" id="card-box">
                         <div class="row g-0">
@@ -48,12 +49,12 @@ const displayDetailsNews = (newses) => {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">${news.title}</h5>
-                                    <p class="card-text " id="elip">${news.details}</p>
+                                    <p class="card-text " id="ellipsis">${news.details}</p>
                                     
                                 </div>
                                   <div class="card-body d-md-flex justify-content-between align-items-center">
                             <div class="d-flex">
-                                <div><img src="${news.author.img}" alt="" width="38" height="38" class="mt-1 me-2"></div>
+                                <div><img src="${news.author.img}" class="rounded-circle img-fluid mt-1 me-2" alt="" width="38" height="38" ></div>
                                 <div>
                                     <small>${news.author.name ? news.author.name : 'no author'}</small> <br>
                                     <small>${news.author.published_date ? news.author.published_date: 'no date found'}</small>
@@ -109,7 +110,7 @@ const displayNewsModal = (news) => {
     <hr>
          <div class="card-body d-md-flex justify-content-between align-items-center">
                             <div class="d-flex">
-                                <div><img src="${news.author.img}" alt="" width="38" height="38" class="mt-1 me-2"></div>
+                                <div><img src="${news.author.img}" class="rounded-circle img-fluid mt-1 me-2" alt="" width="38" height="38" class="mt-1 me-2"></div>
                                 <div>
                                     <small>${news.author.name ? news.author.name : 'no author'}</small> <br>
                                     <small>${news.author.published_date ? news.author.published_date : 'no date found'}</small>

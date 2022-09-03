@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 
-  #elip{
+  #ellipsis{
     overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
