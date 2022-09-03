@@ -47,8 +47,8 @@ const displayDetailsNews = (newses) => {
     }
     else { foundDiv.classList.add('d-none') };
     const newsContainer = document.getElementById('news-container');
-    
     newsContainer.innerHTML = ``;
+
     // console.log(newses)
     newses.forEach(news => {
         
@@ -58,7 +58,7 @@ const displayDetailsNews = (newses) => {
            <div class="card mb-3" style="max-width: 800px;" id="card-box">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+                                <img src="${news.thumbnail_url}" class="img-fluid rounded-start thumbnail " alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 
-  #ellipsis{
+#ellipsis{
     overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -11,13 +11,73 @@
         -webkit-box-orient: vertical;
 
   }
+
+  .blog a{
+    text-decoration: none;
+    color: brown;
+    
+  }
+
   .s-icons{
     font-size: 25px;
     padding-left: 15px;
+    animation: slide-logo 4s ease-in-out .5s infinite alternate;
   }
+
+  @keyframes slide-logo {
+      0% {
+          color: black;
+      }
+
+      25% {
+          color: rgb(47, 102, 255);
+      }
+
+      50% {
+        color: rgb(239, 243, 23);
+      }
+
+      25% {
+        color: rgb(245, 4, 4);
+      }
+
+  }
+
+  #hot-logo-name {
+            animation: slide 4s ease-in-out .5s infinite alternate;
+            background-color: black;
+            padding: 5px;
+            
+        }
+    
+      @keyframes slide {
+        0%{
+            background-color:black;
+        }
+        25%{
+            background-color:greenyellow;
+        }
+        50%{
+            background-color:rgb(239, 243, 23);
+        }
+        25%{
+            background-color:silver;
+        }
+        
+      }
 
   @media only screen and (max-width:688px) {
     #card-box{
         margin-left: 0px;
     }
+    .thumbnail{
+        margin: 15px;
+        margin-left: 50px;
+    }
+        .blog a {
+            padding: 5px;
+    
+        }
   }
+
+
