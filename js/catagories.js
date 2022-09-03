@@ -34,16 +34,18 @@ const loadNewsDetails = (code) => {
 const displayDetailsNews = (newses) => {
     newses.sort((a, b) => b.total_view - a.total_view);
     const newsFound = document.getElementById('news-num');
-    const div = document.createElement('div');
-    div.innerHTML = `
-    <h1>${newses.length} founds in ${}
-    `
-    // const newsFoundString = newsFound.innerText;
-    // const foundResult = parseInt(newsFoundString);
-    // newsFound.innerText = newses.length;
-    if (newses.length === 0) {
+    const newsFoundString = newsFound.innerText;
+    const foundResult = parseInt(newsFoundString);
+    const foundDiv = document.getElementById('found-div')
+    newsFound.innerText = newses.length;
+    if (newses.length> 0) {
+        foundDiv.classList.remove('d-none');
+    
+    }
+    else if (newses.length === 0){
         toggleLoader(false)
     }
+    else { foundDiv.classList.add('d-none') };
     const newsContainer = document.getElementById('news-container');
     
     newsContainer.innerHTML = ``;
