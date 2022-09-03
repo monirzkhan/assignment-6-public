@@ -33,6 +33,17 @@ const loadNewsDetails = (code) => {
 
 const displayDetailsNews = (newses) => {
     newses.sort((a, b) => b.total_view - a.total_view);
+    const newsFound = document.getElementById('news-num');
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <h1>${newses.length} founds in ${}
+    `
+    // const newsFoundString = newsFound.innerText;
+    // const foundResult = parseInt(newsFoundString);
+    // newsFound.innerText = newses.length;
+    if (newses.length === 0) {
+        toggleLoader(false)
+    }
     const newsContainer = document.getElementById('news-container');
     
     newsContainer.innerHTML = ``;
