@@ -32,6 +32,7 @@ const loadNewsDetails = (code) => {
 }
 
 const displayDetailsNews = (newses) => {
+    newses.sort((a, b) => b.total_view - a.total_view);
     const newsContainer = document.getElementById('news-container');
     
     newsContainer.innerHTML = ``;
