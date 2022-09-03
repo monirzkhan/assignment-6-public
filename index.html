@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid ">
                 <img src="images/journalism.png" alt="" class="image-fluid" height="50" width="50">
-                <a class="navbar-brand" href="#">The <span class="text-danger fw-bolder fs-1 shadow-lg p-2 rounded" id="hot-logo-name">HOT</span> News</a>
+                <a class="navbar-brand" href="#">The <span class="text-danger fw-bolder fs-3 shadow-lg p-2 rounded" id="hot-logo-name">HOT</span> News</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
         </section>
         <!-- Loader -->
         <section>
-            <div class="text-center  d-none" id="loader">
+            <div class="text-center  d-none position-absolute top-50 start-50 translate-middle" id="loader">
                 <div class="spinner-border text-danger" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -72,12 +72,12 @@
         </section>
         <!-- Number of Newses details -->
         <section>
-            <div class="bg-light p-3 d-none" id="found-div">
-                <h3 class="text-danger"><span id="news-num">0</span> News Found</h3>
+            <div class="bg-light p-3" >
+                <h3 class="text-danger d-none"id="found-div"><span id="news-num">0</span> News Found</h3>
             </div>
             <div class="d-flex justify-content-between align-items-center bg-light p-1 my-2">
                 <div class="">
-                    <h6>Short By View:
+                    <h5>Short By View:
                 
                         <div class="btn-group my-2">
                             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
@@ -94,7 +94,7 @@
                                                 <li><a class="dropdown-item" href="#">Separated link</a></li> -->
                             </ul>
                         </div>
-                    </h6>
+                    </h5>
                 </div>
                 <Div>
                     <button class="btn btn-danger my-2">Today's Pick</button>
